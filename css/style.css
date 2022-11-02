@@ -20,14 +20,18 @@ time, mark, audio, video {
     font-family: 'Roboto', sans-serif;
 }
 
+html {
+    max-width: 100%;
+}
 body {
+    max-width: 100%;
     width: 100%;
-    height: auto;
     font-weight: bold;
 }
 
 img {
-    width:100%;
+    object-fit: cover;
+    width: 100%;
     height: 100%;
 }
 a{
@@ -55,12 +59,16 @@ button {
 
 #header #head{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    padding-left: 410px;
     margin: 5% 0;
 }
 #header #head #cartMenu {
     display: flex;
-    margin-left: 410px;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-left: 400px;
 }
 /* //End of Header */
 /* Navigation */
@@ -137,6 +145,8 @@ section #voucher li a, section #voucher li span{
     overflow: hidden;
     width: 100%;
     height: 750px;
+    max-height: 750px;
+
 }
 #slideImage .sliderInner{
     position: absolute;
@@ -150,8 +160,13 @@ section #voucher li a, section #voucher li span{
 #slideImage .sliderInner div{
     position: relative;
 }
-#slideImage .sliderInner div .image {
+#slideImage .sliderInner div .image {  
+    height: 100%;
+}
+#slideImage .sliderInner div .image img{  
     filter: brightness(50%);
+    object-fit: cover;
+    height: 100%;
 }
 #slideImage .sliderInner div .imageDescription {
     position: absolute;
@@ -190,9 +205,11 @@ section #voucher li a, section #voucher li span{
 }
 #saleAd li .image {
     height: 100%;
-    overflow: hidden;
 }
 #saleAd li .image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 #saleAd li .imageDescription {
     position: absolute;
@@ -254,11 +271,10 @@ section #voucher li a, section #voucher li span{
     font-weight: 100;
 }
 #newArrival .itemLIst .itemImg{
+    object-fit: cover;
     overflow: hidden;
 }
-#newArrival .itemLIst .itemImg:hover {
-    
-}
+
 #newArrival .itemLIst .itemImg img{
     transition: transform .5s, filter .5s;
 }
@@ -296,9 +312,12 @@ section #voucher li a, section #voucher li span{
     position: relative;
 }
 #banner .bannerImage{
+    overflow: hidden;
     height: 100%;
 }
 #banner .bannerImage img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 #banner .bannerDescription {
@@ -342,8 +361,92 @@ section #voucher li a, section #voucher li span{
     background-color: #FB2576;
 }
 
+/* client testimonial */
+#testimonials {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 120px 0;
+}
+#testimonials #tContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70%;
+}
+/* testimonial h2 */
+
+#testimonials #tContainer .testimonial{
+    font-size: 50px;
+    font-weight: bold;
+}
+#testimonials #tContainer .tComment{
+    width: 80%;
+}
+/* testimonial comment */
+#testimonials #tContainer .tComment .cComment{
+    line-height: 5vh;
+    margin: 60px 0;
+    font-size: 20px;
+    font-weight: 200;
+    color: #888;
+}
+/* client */
+#testimonials #tContainer .tComment .client{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/* client image */
+#testimonials #tContainer .tComment .client img{
+    width: 60px;
+    border-radius: 100%;
+}
+/* client information */
+#testimonials #tContainer .tComment .client div{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#testimonials #tContainer .tComment .client div .clientName{
+    font-size: 15px;
+}
+#testimonials #tContainer .tComment .client div .clientInfo{
+    font-size: 14px;
+    color:#FB2576;
+}
+
+
 @media (max-width: 1200px){
     #header #head #cartMenu {
         margin-left: 250px;
     }
+}
+
+
+/* dots */
+#testimonials .dots{
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-evenly;
+}
+.dot {
+    width: 10px;
+    height: 15px;
+    border: 2px solid #999;
+    border-radius: 100%;
+    cursor: pointer;
+}
+/* active */
+.active {
+    background-color: red;
 }
